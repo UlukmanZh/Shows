@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        Update
+        {% endblock title %}
+    </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    {% block content %}
+    <div id="wrapper" style="display: flex; justify-content: space-around; padding: 1.5rem;">
+        <main style="padding: 2rem;">
+            <h1 style="text-align: center;">Edit Show {{ id }}</h1>
+            <form style = "margin-top: 2rem; margin-bottom: 1.5rem;" action="/shows/{{ id }}/update" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input name="title" type="text" class="form-control" id="title" value="{{ title }}">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="network">Network</label>
+                        <input name="network" type="text" class="form-control" id="network" value="{{ network }}">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="date">Realease Date</label>
+                        <input name="date" type="date" class="form-control" id="date" value="{{ date }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="desc">Description</label>
+                    <textarea name="desc" class="form-control" id="desc" rows="3" >{{ desc }}</textarea>
+                </div>
+                <button style="margin-top: 1rem;" type="submit" class="btn btn-primary">Update</button>
+            </form>
+            <a href="/shows/{{ id }}">Go to Show</a>
+        </main>
+        <nav>
+            <a href="/shows">Go Back</a>
+        </nav>
+
+
+
+    </div>
+    {% endblock content %}
+</body>
+
+</html>

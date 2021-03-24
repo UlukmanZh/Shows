@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+{% block title %}
+Read(One)
+{% endblock title %}
+
+
+{% block content %}
+<div id="wrapper" style="padding: 3rem; display: flex; justify-content: space-around; padding: 3rem;">
+    <main style="min-width: 80%;">
+        <h1>TV SHOW {{ id }}</h1>
+        <table style="width: 50%; margin-top: 2rem;" class="table table-borderless">
+            <tbody>
+                <tr>
+                    <th scope="row">Title</th>
+                    <td>{{ title }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Network</th>
+                    <td>{{ network }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Realease Date</th>
+                    <td colspan="2">{{ date }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Description</th>
+                    <td>{{ desc }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table style="width: 25%; margin-top: 15rem; margin-bottom: 1rem;" class="table table-borderless">
+            <tbody>
+                <tr>
+                    <th scope="row">Last Updated</th>
+                    <td>{{ update_date }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="/shows/{{ id }}/edit">Edit |</a>
+        <a href="/shows/{{ id }}/destroy">Delete</a>
+    </main>
+    <nav>
+        <a href="/shows" >Go Back</a>
+    </nav>
+    
+
+    
+</div>
+{% endblock content %}
